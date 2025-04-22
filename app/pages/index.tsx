@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -129,9 +130,12 @@ const PokemonList = () => {
               <h2 className="text-xl font-semibold text-center">
                 {selectedType === "all" ? pokemon.name : pokemon?.pokemon?.name}
               </h2>
-              <button className="text-blue-500 text-center block mt-4">
+              <Link
+                href={`pokemon/${pokemon.name}`}
+                className="text-blue-500 text-center block mt-4"
+              >
                 Details →
-              </button>
+              </Link>
             </div>
           ))
         ) : (
